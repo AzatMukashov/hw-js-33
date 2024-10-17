@@ -34,14 +34,14 @@ const App: React.FC = () => {
     }
   }, [selectedCountryCode]);
   return (
-    <Container>
+    <Container className='mt-3 mb-3'>
       <Row>
         <Col md={4}>
           <CountryList
             countries={countries}
             onSelectCountry={setSelectedCountryCode}/>
         </Col>
-        <Col md={8}>
+        <Col md={8} className='border border-gray'>
           <Country country={selectedCountry}/>
         </Col>
       </Row>
