@@ -3,6 +3,8 @@ export interface CountryProps {
   name: string;
   capital: string;
   region: string;
+  population: number;
+  flag: string;
   borders?: string[];
 }
 
