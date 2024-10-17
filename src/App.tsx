@@ -11,18 +11,26 @@ const App: React.FC = () => {
   const [selectedCountry, setSelectedCountry] = useState<CountryProps | null>(null);
   useEffect(() => {
     const fetchCountries = async () => {
+      try {
       const response = await axios.get('https://restcountries.com/v2/all?fields=alpha3Code,name');
       setCountries(response.data);
+      } catch (error) {
+        console.error('error from get countries:', error);
+      }
     };
-    fetchCountries();
+    fetchCountries().catch(console.error);
   }, []);
   useEffect(() => {
     if (selectedCountryCode) {
       const fetchCountry = async () => {
+        try {
         const response = await axios.get(`https://restcountries.com/v2/alpha/${selectedCountryCode}`);
         setSelectedCountry(response.data);
+        } catch (error) {
+          console.error('error from get country:', error);
+        }
       };
-      fetchCountry();
+      fetchCountry().catch(console.error);
     }
   }, [selectedCountryCode]);
   return (
