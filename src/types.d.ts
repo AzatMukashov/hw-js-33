@@ -1,4 +1,4 @@
-export interface Country {
+export interface CountryProps {
   alpha3Code: string;
   name: string;
   capital: string;
@@ -6,11 +6,11 @@ export interface Country {
   borders?: string[];
 }
 
-export interface CountryList {
+export interface CountryListProps {
   countries: Country[];
   onSelectCountry: (code: string) => void;
 }
 
-export interface Country {
+export interface CountryDetails {
   country: Country | null;
 }
